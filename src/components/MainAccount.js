@@ -25,10 +25,11 @@ export default MainAccount
 const styles = StyleSheet.create({
     outer:{
         flexDirection:'row',
-        width:380,
+        width:'90%',
         alignItems:'center',
         justifyContent:'space-between',
-        marginTop:20
+        marginTop:20,
+        alignSelf:'center'
     },
     image:{
         width:50,

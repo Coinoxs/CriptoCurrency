@@ -33,10 +33,11 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         backgroundColor:'rgba(0, 0, 0,0.2)',
         padding:10,
-        width:380,
+        width:'90%',
         alignItems:'center',
         borderRadius:10,
-        marginTop:20
+        marginTop:20,
+        alignSelf:'center'
         
     },
     image:{

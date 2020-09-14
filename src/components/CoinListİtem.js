@@ -34,10 +34,11 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         backgroundColor:'white',
         padding:20,
-        width:380,
+        width:'90%',
         alignItems:'center',
         borderRadius:10,
-        marginBottom:10
+        marginBottom:10,
+        alignSelf:'center'
     },
     image:{
         width:50,

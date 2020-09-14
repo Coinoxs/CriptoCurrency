@@ -7,16 +7,11 @@ import {
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import TabHome from '../pages/TabHome'
+import SettingsScreen from '../pages/Settings'
 import LinearGradient from 'react-native-linear-gradient';
 
 
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
+
 
 const Tab = createBottomTabNavigator();
 

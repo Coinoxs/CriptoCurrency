@@ -13,9 +13,9 @@ const WalletBackground = () =>{
             <LinearGradient colors={['#127251',  '#00CC66']} style={styles.linearGradient}></LinearGradient>
             <View style={styles.white}></View>
             <View style={styles.black}>
-            <View style={styles.grey}></View>
+                <View style={styles.grey}></View>
             </View>
-            <View style={{position:'absolute', zIndex:4,}}>
+            <View style={{position:'absolute', zIndex:4, width:'100%'}}>
                 <MainAccount />
                 <CoinBlackInfo />
                 <WalletDetail />
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         alignItems:'center'
       },
       grey:{
-          width:380,
+          width:'90%',
           height:30,
           backgroundColor:'#f2efef'
       }

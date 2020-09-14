@@ -32,7 +32,7 @@ export default function OpeningPage( { navigation } ) {
                   Title='Withdraw Anytime' Description='No lockup periods. Your money is ready whenever you need it.' />
               </Swiper>
               <LogButton name='CREATE WALLET' navigate='TabNavigation' />
-              <LogButton name='RESTORE WALLET' navigate='TabNavigation'/>
+              <LogButton name='RESTORE WALLET' navigate='PincodeScreen'/>
             </SafeAreaView>
             )
             }

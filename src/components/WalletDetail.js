@@ -28,7 +28,8 @@ export default WalletDetail
 
 const styles = StyleSheet.create({
     outer:{
-        width:380,
-        marginTop:20
+        width:'90%',
+        marginTop:20,
+        alignSelf:'center'
     },
 });
