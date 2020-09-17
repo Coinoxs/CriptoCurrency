@@ -7,22 +7,33 @@ import { useNavigation } from '@react-navigation/native';
 
 const LogButton = (props ) => {
     const navigation = useNavigation();
+
+    const PressHandler = () => {
+        console.log(props)
+        if(props.navigate != null){
+
+        navigation.navigate(props.navigate)
+        }
+        if(props.onPressFunction){
+            props.onPressFunction()
+        }
+    }
     return(
         <TouchableOpacity
-        style={styles.button}
-            onPress={() => navigation.navigate(props.navigate)}
+            style={styles.button}
+            onPress={PressHandler}
             >
-        <LinearGradient
-            colors={['#127251',  '#00CC66']}
-            style={styles.linearGradient}
-            angle={45}
-            useAngle={true}
-            angleCenter={{ x: 0.5, y: 0.5}}
-            >
-            <Text style={styles.buttonText}>
-                {props.name}
-            </Text>
-        </LinearGradient>
+            <LinearGradient
+                colors={['#127251',  '#00CC66']}
+                style={styles.linearGradient}
+                angle={45}
+                useAngle={true}
+                angleCenter={{ x: 0.5, y: 0.5}}
+                >
+                <Text style={styles.buttonText}>
+                    {props.name}
+                </Text>
+            </LinearGradient>
         </TouchableOpacity>
     )
 }

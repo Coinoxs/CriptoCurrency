@@ -1,5 +1,6 @@
 
-import {COINSELECTION} from '../actions/coinSelection'
+import { act } from 'react-test-renderer'
+import {COINSELECTION,PINCODEENTERED,ENTEREDPIN,CONFIRMPIN} from '../actions/coinSelection'
 
 const initState = {
     coinInfo:[
@@ -15,15 +16,24 @@ const initState = {
         {key:'10', name:'TRON', walletID:'123adasd213', amount:3453.12312 ,dolarAmount:'=$ 787.1412' },
         {key:'11', name:'NEO', walletID:'123adasd213', amount:234.12312 ,dolarAmount:'=$ 4.1412' }
     ],
-    selectedCoin:{key:1, name:'BTC', walletID:'123adasd213', amount:1235.12312 ,dolarAmount:'=$ 12313.1412'}
+    selectedCoin:{key:1, name:'BTC', walletID:'123adasd213', amount:1235.12312 ,dolarAmount:'=$ 12313.1412'},
+    isPinCodeEntered:false,
+    enteredPin:'',
+    confirmPin:'',
  
 }
 
 
 const rootReducer = (state=initState,action) =>{
    switch (action.type) {
-       case COINSELECTION:
-           return {...state, selectedCoin:action.payload}   
+        case COINSELECTION:
+           return {...state, selectedCoin:action.payload}
+        case PINCODEENTERED:
+            return {...state, isPinCodeEntered:action.payload}
+        case ENTEREDPIN:
+            return {...state, enteredPin:action.payload}
+        case CONFIRMPIN:
+            return {...state,confirmPin:action.payload}
        default:
            return {...state}
    }

@@ -1,44 +1,78 @@
-//This is an example code for ViewPager//
-import React from 'react';
-//import react in our code.
-import { StyleSheet, View, Text,TouchableOpacity } from 'react-native';
-// import all basic components
-import Swiper from "react-native-swiper";
+import React,{useEffect} from 'react';
+import { StyleSheet,Image} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Slider from '../components/Slider'
-import LogButton from '../components/Button';
+import  AsyncStorage  from '@react-native-community/async-storage';
+import { useNavigation } from '@react-navigation/native';
+import { CommonActions } from '@react-navigation/native';
+import {useSelector,useDispatch} from 'react-redux';
 
 
 
-export default function OpeningPage( { navigation } ) {
-  
-            return (
-              <SafeAreaView style={{ flex: 1, alignItems:'center', backgroundColor:'white', paddingBottom:50}}>
-                <Swiper style={styles.wrapper}  showsButtons={false} autoplay 
-                activeDotColor='#127251'>
-                  <Slider logoSource={require('../photos/Blue2.png')} logoStyle={{ width:150, height:150,marginTop:60}}
-                  Title='Welcome!' Description='Earn high yield on your cash in an insured account'/>
-                  <Slider kckLogoSource={require('../photos/Blue2.png')} logoStyle={{ width:200,height:200,marginTop:60,marginBottom:5}}
-                  logoSource={require('../photos/money.png')} 
-                  Title='High Yieldon Your Cash' Description='Made possible by alternative markets with continuous compounding' />
-                  <Slider kckLogoSource={require('../photos/Blue2.png')} logoStyle={{ width:200,height:200,marginTop:60,marginBottom:5}}
-                  logoSource={require('../photos/truck.png')} 
-                  Title='High Yieldon Your Cash' Description='Made possible by alternative markets with continuous compounding' />
-                  <Slider kckLogoSource={require('../photos/Blue2.png')} logoStyle={{ width:200,height:200,marginTop:60,marginBottom:5}}
-                  logoSource={require('../photos/money5.png')} 
-                  Title='No Minumums. No Fees.' Description='No joke. Start with any amount. What you see is what you get.' />
-                  <Slider kckLogoSource={require('../photos/Blue2.png')} logoStyle={{ width:200,height:200,marginTop:60,marginBottom:5}}
-                  logoSource={require('../photos/money4.png')} 
-                  Title='Withdraw Anytime' Description='No lockup periods. Your money is ready whenever you need it.' />
-              </Swiper>
-              <LogButton name='CREATE WALLET' navigate='TabNavigation' />
-              <LogButton name='RESTORE WALLET' navigate='PincodeScreen'/>
-            </SafeAreaView>
-            )
-            }
-            const styles = StyleSheet.create({
-              wrapper:{
-                paddingBottom:100,
-              }
-              
+
+const STORAGE_KEY = '@pincode'
+
+
+
+export default function OpeningPage( ) {
+    const navigation = useNavigation();
+    const dispacth = useDispatch(); 
+
+    const _retrieveData = async () => {
+        try {
+          const value = await AsyncStorage.getItem(STORAGE_KEY);
+          if (value !== null) {
+            // We have data!!
+            dispacth({
+              type:'CONFIRMPIN',
+              payload:value
             })
+            navigation.dispatch(
+              CommonActions.reset({
+                index: 0,
+                routes: [
+                  {
+                    name: 'EnterPincode',
+                  },
+                ],
+              })
+            );
+          }else{
+            navigation.dispatch(
+              CommonActions.reset({
+                index: 0,
+                routes: [
+                  {
+                    name: 'WalletCreation',
+                  },
+                ],
+              })
+            );
+          }
+        } catch (error) {
+          // Error retrieving data
+        }
+      };
+
+
+    useEffect (() => {
+        _retrieveData();
+      },[])
+  
+    return (
+        <SafeAreaView style={styles.wrapper}>
+            <Image source={require('../assets/icon.png')}></Image>
+        </SafeAreaView>
+    )
+}
+
+
+
+const styles = StyleSheet.create({
+    wrapper:{
+        flex:1,
+        alignItems:'center',
+        justifyContent:'center',
+        backgroundColor:'#4f6d7a',
+    }
+    
+})

@@ -2,7 +2,7 @@
 import React , {useEffect} from 'react';
 import {
   SafeAreaView,
-  StyleSheet,
+  StyleSheet,View
 } from 'react-native';
 import StackNavigation from './src/navigation/StackNavigation'
 import {createStore} from 'redux'

@@ -1,8 +1,6 @@
-
 import React from 'react';
 import { StyleSheet, View, Text,TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-
 import { useNavigation } from '@react-navigation/native';
 
 const KeyBoardButton = (props ) => {
@@ -38,7 +36,8 @@ const styles = StyleSheet.create({
         paddingRight: 15,
         borderRadius: 5,
         marginVertical:5,
-        width:300,
+        width:50,
+        height:30
       },
       buttonText: {
         fontSize: 18,

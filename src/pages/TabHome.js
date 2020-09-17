@@ -10,21 +10,9 @@ import  AsyncStorage  from '@react-native-community/async-storage';
 const TabHome = () => { 
   const dispacth = useDispatch(); 
   const coinList = useSelector((state) => state.coinInfo)
-  const STORAGE_KEY = '@save_age'
   
-  const _storeData = async (item) => {
-
-    
-    try {
-      await AsyncStorage.setItem(
-        STORAGE_KEY,
-        item
-      );
-      alert('Data successfully saved')
-    } catch (error) {
-      alert('Failed to save the data to the storage')
-    }
-  }
+  
+ 
   const _retrieveData = async () => {
     try {
       const value = await AsyncStorage.getItem(STORAGE_KEY);
@@ -43,7 +31,6 @@ const TabHome = () => {
       payload:item
     })
     console.log('click',item)
-    _storeData(JSON.stringify(item));
     _retrieveData();
 
 }
