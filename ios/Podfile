@@ -8,6 +8,8 @@ target 'CriptoCurrency' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  pod 'react-native-randombytes', :path => '../node_modules/react-native-randombytes'
+
   target 'CriptoCurrencyTests' do
     inherit! :complete
     # Pods for testing

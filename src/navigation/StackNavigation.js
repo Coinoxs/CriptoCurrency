@@ -9,6 +9,9 @@ import PinNavigation from '../navigation/PinNavigation'
 import  AsyncStorage  from '@react-native-community/async-storage';
 import {useSelector,useDispatch} from 'react-redux'
 import EnterPincode from '../pages/EnterPincode'
+import SeedScreen from '../pages/SeedScreen'
+import RestoreSeeds from '../pages/RestoreSeeds'
+import SeedConfirmation from '../pages/SeedConfirmation'
 
 const Stack = createStackNavigator();
 
@@ -49,6 +52,9 @@ const _retrieveData = async () => {
         <Stack.Screen name="EnterPincode" component={EnterPincode} options={{ headerShown: false }}/>
         <Stack.Screen name="TabNavigation" component={TabNavigation} options={{ headerShown: false }}/>
         <Stack.Screen name="PinNavigation" component={PinNavigation} options={{ headerShown: false }}/>
+        <Stack.Screen name="SeedScreen" component={SeedScreen} options={{ headerShown: false }}/>
+        <Stack.Screen name="RestoreSeeds" component={RestoreSeeds} options={{ headerShown: false }}/>
+        <Stack.Screen name="SeedConfirmation" component={SeedConfirmation} options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

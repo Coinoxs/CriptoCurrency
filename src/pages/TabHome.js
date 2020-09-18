@@ -35,7 +35,6 @@ const TabHome = () => {
 
 }
 
-    
     return (
       <View style={{alignItems:'center', flex:1, backgroundColor:'#f2efef', width:'100%'}}>
             <WalletBackground/>
@@ -46,7 +45,7 @@ const TabHome = () => {
                 keyExtractor={item => item.key}
                 data={coinList}
                 renderItem={({ item }) => (
-                    <CoinListItem item={item} onPress={() => clickHandler(item)}/>
+                    <CoinListItem key= {Math.random()} item={item} onPress={() => clickHandler(item)}/>
                 )}
                 />
             </View>

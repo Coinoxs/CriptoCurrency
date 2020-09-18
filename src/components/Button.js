@@ -9,7 +9,6 @@ const LogButton = (props ) => {
     const navigation = useNavigation();
 
     const PressHandler = () => {
-        console.log(props)
         if(props.navigate != null){
 
         navigation.navigate(props.navigate)

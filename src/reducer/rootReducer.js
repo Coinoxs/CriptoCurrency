@@ -1,6 +1,8 @@
 
 import { act } from 'react-test-renderer'
-import {COINSELECTION,PINCODEENTERED,ENTEREDPIN,CONFIRMPIN} from '../actions/coinSelection'
+import {COINSELECTION,PINCODEENTERED,ENTEREDPIN,
+    CONFIRMPIN, SEEDADD,SEEDNUMBERCHANGE,SUFFLEDSEEDLIST,
+    ORIGINALSUFFLEDSEEDLIST} from '../actions/coinSelection'
 
 const initState = {
     coinInfo:[
@@ -20,7 +22,10 @@ const initState = {
     isPinCodeEntered:false,
     enteredPin:'',
     confirmPin:'',
- 
+    seedList:[],
+    seedNumber:12,
+    suffledSeedList:[],
+    originalSuffledSeedList:[]
 }
 
 
@@ -34,6 +39,14 @@ const rootReducer = (state=initState,action) =>{
             return {...state, enteredPin:action.payload}
         case CONFIRMPIN:
             return {...state,confirmPin:action.payload}
+        case SEEDADD:
+            return {...state, seedList:action.payload}
+        case SEEDNUMBERCHANGE:
+            return {...state, seedNumber:action.payload }
+        case SUFFLEDSEEDLIST:
+            return {...state, suffledSeedList:action.payload}
+        case ORIGINALSUFFLEDSEEDLIST:
+            return {...state, originalSuffledSeedList:action.payload}
        default:
            return {...state}
    }

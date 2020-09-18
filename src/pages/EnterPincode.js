@@ -66,7 +66,7 @@ export default function EnterPincode( ) {
                       index: 0,
                       routes: [
                         {
-                          name: 'TabNavigation',
+                          name: 'SeedScreen'
                         },
                       ],
                     })
@@ -109,9 +109,7 @@ export default function EnterPincode( ) {
                 keyExtractor={(item) => item.key}
                 data={numbers}
                 renderItem={({ item }) => (
-                    <TouchableOpacity onPress={() => { clickHandler(item)
-                    }}
-                    >
+                    <TouchableOpacity onPress={() => { clickHandler(item)}} >
                         <View style={styles.tuslar}>
                             <Text style={styles.tuslarText} >{item.number}</Text>
                         </View>
