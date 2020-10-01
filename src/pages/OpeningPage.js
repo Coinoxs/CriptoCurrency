@@ -60,7 +60,6 @@ export default function OpeningPage( ) {
   
     return (
         <SafeAreaView style={styles.wrapper}>
-            <Image source={require('../assets/icon.png')}></Image>
         </SafeAreaView>
     )
 }
