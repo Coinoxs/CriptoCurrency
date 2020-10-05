@@ -298,7 +298,6 @@ const styles = StyleSheet.create({
         fontSize:15,
         fontWeight:'bold',
         color:'white',
-        textTransform:'capitalize',
         fontFamily: 'SofiaProLight',
 
     },
@@ -313,10 +312,9 @@ const styles = StyleSheet.create({
 
     },
     tuslarTextSmall:{
-        fontSize:10,
+        fontSize:8,
         fontWeight:'bold',
         color:'white',
-        textTransform:'capitalize',
         fontFamily: 'SofiaProLight',
 
     },

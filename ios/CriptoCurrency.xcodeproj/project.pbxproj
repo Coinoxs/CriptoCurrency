@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* CriptoCurrencyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CriptoCurrencyTests.m */; };
+		10E31F7B2529EA82007E7FFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E31F7A2529EA82007E7FFF /* ViewController.swift */; };
 		10F51DC125270A030079E2A5 /* sofiapro-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 10F51DC025270A030079E2A5 /* sofiapro-light.otf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -46,6 +47,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* CriptoCurrencyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CriptoCurrencyTests.m; sourceTree = "<group>"; };
 		106DAF98252680E700B7DEAF /* CriptoCurrency-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CriptoCurrency-Bridging-Header.h"; sourceTree = "<group>"; };
+		10E31F7A2529EA82007E7FFF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		10F51DC025270A030079E2A5 /* sofiapro-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sofiapro-light.otf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* CriptoCurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CriptoCurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = CriptoCurrency/AppDelegate.h; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				106DAF98252680E700B7DEAF /* CriptoCurrency-Bridging-Header.h */,
+				10E31F7A2529EA82007E7FFF /* ViewController.swift */,
 			);
 			name = CriptoCurrency;
 			sourceTree = "<group>";
@@ -299,6 +302,9 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					a,
+				);
 				LastUpgradeCheck = 1130;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -645,6 +651,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10E31F7B2529EA82007E7FFF /* ViewController.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
@@ -687,6 +694,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9A53F5E3B9DB209E464B27F2 /* Pods-CriptoCurrency-CriptoCurrencyTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -710,6 +718,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A50D8D7BCB87481AD666550F /* Pods-CriptoCurrency-CriptoCurrencyTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = CriptoCurrencyTests/Info.plist;

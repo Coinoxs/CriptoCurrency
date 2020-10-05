@@ -9,11 +9,11 @@ import PinNavigation from '../navigation/PinNavigation'
 import {useSelector,useDispatch} from 'react-redux'
 import EnterPincode from '../pages/EnterPincode'
 import SeedScreen from '../pages/SeedScreen'
-import RestoreSeeds from '../pages/RestoreSeeds'
+import RestoreWallet from '../pages/RestoreWallet'
 import SeedConfirmation from '../pages/SeedConfirmation'
 import SInfo from 'react-native-sensitive-info';
 import SecurityWarning from '../pages/SecurityWarning';
-
+import WalletCreated from '../pages/WalletCreated';
 
 const Stack = createStackNavigator();
 
@@ -55,9 +55,10 @@ const _retrieveData = async () => {
         <Stack.Screen name="TabNavigation" component={TabNavigation} options={{ headerShown: false }}/>
         <Stack.Screen name="PinNavigation" component={PinNavigation} options={{ headerShown: false }}/>
         <Stack.Screen name="SeedScreen" component={SeedScreen} options={{ headerShown: false }}/>
-        <Stack.Screen name="RestoreSeeds" component={RestoreSeeds} options={{ headerShown: false }}/>
+        <Stack.Screen name="RestoreWallet" component={RestoreWallet} options={{ headerShown: false }}/>
         <Stack.Screen name="SeedConfirmation" component={SeedConfirmation} options={{ headerShown: false }}/>
         <Stack.Screen name="SecurityWarning" component={SecurityWarning} options={{ headerShown: false }}/>
+        <Stack.Screen name="WalletCreated" component={WalletCreated} options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

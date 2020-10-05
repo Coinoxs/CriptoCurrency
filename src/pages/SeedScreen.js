@@ -41,7 +41,8 @@ export default function SeedScreen( ) {
             if(list.indexOf(Mne) !== -1){
                 return;
             }else{
-                list.push({id:i,name:Mne})
+                let newMne = Mne.charAt(0).toUpperCase() + Mne.slice(1)
+                list.push({id:i,name:newMne})
                 i++
             }
         }
@@ -172,7 +173,6 @@ const styles = StyleSheet.create({
         fontSize:15,
         fontWeight:'bold',
         color:'white',
-        textTransform:'capitalize',
         fontFamily: 'SofiaProLight',
 
     },

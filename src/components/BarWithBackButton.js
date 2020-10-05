@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     outer:{
         width:'93%',
         alignSelf:'center',
-        marginTop:5,
+        marginTop:10,
         marginBottom:5,
     },
 

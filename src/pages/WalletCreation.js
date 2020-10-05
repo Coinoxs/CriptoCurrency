@@ -13,33 +13,39 @@ import DarkButton from '../components/DarkButton';
 export default function WalletCreation( { navigation } ) {
   
   return (
-    <SafeAreaView style={{width: '100%', height: '100%'}}>
+    <SafeAreaView style={styles.outer}>
     <StatusBar style='auto' hidden />
-    <ImageBackground source={require('../assets/Images/1.png')} style={{width: '100%', height: '110%',justifyContent:'space-between'}}>
+    <View  style={{width: '100%', height: '100%',justifyContent:'space-between'}}>
             <View style={styles.wrapper}>
               <Swiper   showsButtons={false}  
               activeDotColor='#DB6FF8'>
-                <Slider logoSource={require('../assets/Images/vaultX.png')} logoStyle={{ width:150, height:150}}/>
-                <Slider logoSource={require('../assets/Images/vaultX.png')} logoStyle={{ width:150, height:150}}/>
+                <Slider logoSource={require('../assets/Images/vaultX.png')} logoStyle={{ width:250, height:150, marginTop:80}}/>
+                
+                
+
               </Swiper>
             </View>
-            <View style={{marginBottom:'30%', alignItems:'center',width:'90%', alignSelf:'center'}}>
+            <View style={{marginBottom:'30%', alignItems:'center',width:'90%', alignSelf:'center',height:'40%'}}>
             <LightButton name='CREATE WALLET' navigate='PinNavigation' />
-            <DarkButton name='RESTORE WALLET' navigate='RestoreSeeds'  />
+            <DarkButton name='RESTORE WALLET' navigate='RestoreWallet'  />
             <Text style={styles.siteText}>wwww.VaultX.com</Text>
             </View>
-        </ImageBackground>
-      
+    </View>
     </SafeAreaView>
   )
   }
 
 
   const styles = StyleSheet.create({
+    outer:{
+      backgroundColor:'#0F0A28',
+      height:'100%',
+      width:'100%',
+      justifyContent:"center"
+    },
     wrapper:{
       width:'100%',
-      height:'60%',
-      top:'10%'
+      height:'78%',
     },
     siteText:{
       color:'#606DCB',

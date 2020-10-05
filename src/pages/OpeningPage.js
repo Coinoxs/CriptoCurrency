@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react';
-import { StyleSheet,Image} from 'react-native';
+import { StyleSheet,Image, ImageBackground, useWindowDimensions} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, CommonActions } from '@react-navigation/native';
 import {useSelector,useDispatch} from 'react-redux';
@@ -13,6 +13,8 @@ const STORAGE_KEY = '@pincode'
 
 
 export default function OpeningPage( ) {
+
+    const window = useWindowDimensions();
     const navigation = useNavigation();
     const dispacth = useDispatch(); 
 
@@ -54,11 +56,11 @@ export default function OpeningPage( ) {
 
 
     useEffect (() => {
-        _retrieveData();
+      _retrieveData()
       },[])
   
     return (
-        <SafeAreaView style={styles.wrapper}>
+        <SafeAreaView >
         </SafeAreaView>
     )
 }
@@ -66,10 +68,16 @@ export default function OpeningPage( ) {
 
 
 const styles = StyleSheet.create({
-    wrapper:{
-        flex:1,
+    wrapper:{ 
+        width:window.width,
+        height:'110%',
+        backgroundColor:'#0F0A28',
         alignItems:'center',
-        justifyContent:'center',
-    }
+        justifyContent:'center'
+    },
+    icon:{
+      height:120,
+      width:120,
+    },
     
 })

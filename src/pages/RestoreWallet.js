@@ -1,5 +1,5 @@
 import React, {useEffect, useState}from 'react';
-import { StyleSheet, View, Text,TouchableOpacity,Dimensions,FlatList,TextInput } from 'react-native';
+import { StyleSheet, View, Text,TouchableOpacity,Dimensions,FlatList,TextInput, Modal } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import BarWithBackButton from '../components/BarWithBackButton'
 import DarkButton from '../components/DarkButton';
@@ -9,6 +9,7 @@ import { useNavigation, CommonActions } from '@react-navigation/native';
 import SInfo from 'react-native-sensitive-info';
 import LinearGradient from 'react-native-linear-gradient';
 import BottomText from '../components/BottomText';
+import RestoreFailed from './RestoreFailed';
 
 
 
@@ -16,7 +17,7 @@ import BottomText from '../components/BottomText';
 const screenWidth = Math.round(Dimensions.get('window').width)
 const STORAGE_KEY = '@seed_key'
 
-export default function RestoreSeeds( ) {
+export default function RestoreWallet( ) {
     const navigation = useNavigation();
     const dispacth = useDispatch(); 
     const [tags, setTags] = useState([]);
@@ -25,7 +26,12 @@ export default function RestoreSeeds( ) {
     const seedNumber = useSelector((state) => state.seedNumber)
     const restoreList = useSelector((state) => state.restoreList)
     const [isTouched, setIsTouched] = useState(false);
+    const [modalVisible, setModalVisible] = useState(false);
     
+
+    const closeModal = (text) =>{
+            setModalVisible(text);
+    }
 
     const _retrieveData = async () => {
         console.log(restoreList)
@@ -42,7 +48,7 @@ export default function RestoreSeeds( ) {
                 type:'SEEDADD',
                 payload:jsonValue
               })
-            
+            console.log(value)
           }else{
             navigation.dispatch(
               CommonActions.reset({
@@ -104,19 +110,26 @@ export default function RestoreSeeds( ) {
             alert("please first enter the seeds then import")
         }else{
             for (let index = 0; index < seedNumber; index++) {
-                console.log(seedList[index].name)
-                console.log(restoreList[index].name)
-                console.log(seedList[index].name == restoreList[index].name)
-                if(seedList[index].name == restoreList[index].name){
-                    console.log('originallist eşit', seedList[index])
-                    console.log('user entry eşit', restoreList[index])
-                }else if(seedList[index] !== restoreList[index]){
-                    alert("please enter the correct seeds in order")
+                if (restoreList.length < seedNumber){
+                    setModalVisible(true);
                     return;
+                }else{
+                    console.log(seedList[index].name)
+                    console.log(restoreList[index].name)
+                    console.log(seedList[index].name == restoreList[index].name)
+                    if(seedList[index].name == restoreList[index].name){
+                        console.log('originallist eşit', seedList[index])
+                        console.log('user entry eşit', restoreList[index])
+                    }else if(seedList[index] !== restoreList[index]){
+                        setModalVisible(true);
+                        return;
+                    }
                 }
+                
         }
         alert("all seeds are correct")
-            navigation.navigate('TabNavigation')
+        navigation.navigate("WalletCreated")
+        
         }
         
     }
@@ -152,6 +165,15 @@ export default function RestoreSeeds( ) {
      
     return (
         <SafeAreaView style={styles.safeArea} >
+            <Modal
+            animationType="fade"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+                setModalVisible(false);
+                }}>
+            <RestoreFailed closeModal={closeModal} />
+            </Modal>
             <BarWithBackButton/>
             <View style={styles.container}>
                 <Text style={styles.header}>Restore Wallet</Text>
@@ -268,7 +290,6 @@ const styles = StyleSheet.create({
         fontSize:15,
         fontWeight:'bold',
         color:'white',
-        textTransform:'capitalize',
         fontFamily: 'SofiaProLight',
 
     },
@@ -312,7 +333,6 @@ const styles = StyleSheet.create({
         fontSize:10,
         fontWeight:'bold',
         color:'white',
-        textTransform:'capitalize',
         fontFamily: 'SofiaProLight',
 
     },

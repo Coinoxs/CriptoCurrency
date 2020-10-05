@@ -76,7 +76,7 @@ export default function EnterPincode( ) {
                       index: 0,
                       routes: [
                         {
-                          name: 'TabNavigation'
+                          name: 'WalletCreated'
                         },
                       ],
                     })

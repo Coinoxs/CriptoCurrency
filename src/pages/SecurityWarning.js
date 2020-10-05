@@ -9,13 +9,13 @@ export default function SecurityWarning() {
     return(
         <SafeAreaView style={styles.outer}>
             <View style={styles.container}>
-                <Image style={styles.logoStyle} source={require('../assets/Images/securitywarning.png')} />
+                <Image  source={require('../assets/Images/securitywarning.png')} />
                 <Text style={styles.header}>Security warning</Text>
                 <Text style={styles.header2}>Lorem ipsum dolor sit amet, 
                 consectetur adipiscing elit, sed do eiusmod tempor. Lorem ipsum dolor sit amet, 
                 consectetur adipiscing elit
                 </Text>
-                <LightButton name="I AGREE" navigate="TabNavigation"/>
+                <LightButton name="I AGREE" />
                 <BottomText  content="Duis aute irure dolor in 
                 reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."/>
             </View>
